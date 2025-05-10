@@ -1,13 +1,21 @@
 # POS System
 
-A simple Point of Sale (POS) system built using:
+A simple Point of Sale (POS) system
 
-- **HTML**
-- **CSS**
-- **JavaScript**
-- **Node.js**
-- **Express.js**
-- **MySQL**
+## 🧑‍💻 Technologies Used
+
+###  Frontend
+- HTML
+- CSS
+- JavaScript
+
+###   Backend
+- Node.js
+- Express.js
+
+###   Database
+- MySQL
+
 
 ## Features
 
