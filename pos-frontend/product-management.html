@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Product Management</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background: #f8f9fa;
+      margin: 0;
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: auto;
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+    }
+
+    .header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .back-btn {
+      font-size: 20px;
+      border: none;
+      background: none;
+      cursor: pointer;
+    }
+
+    .new-product-btn {
+      background: #00b894;
+      color: white;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    .form-section {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+      margin-top: 20px;
+      align-items: start;
+    }
+
+    .form-section input[type="text"],
+    .form-section input[type="number"] {
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .image-upload {
+      grid-column: span 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .image-preview {
+      width: 100px;
+      height: 100px;
+      background: #e0e0e0;
+      margin-bottom: 10px;
+      background-size: cover;
+      background-position: center;
+      border: 1px solid #ccc;
+    }
+
+    #imageInput {
+      display: none;
+    }
+
+    .save-btn {
+      grid-column: span 4;
+      justify-self: end;
+      padding: 10px 20px;
+      background: #0984e3;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    .search-input {
+      width: 100%;
+      margin: 20px 0;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+    }
+
+    table thead {
+      background: #f1f1f1;
+    }
+
+    table th,
+    table td {
+      padding: 12px;
+      border: 1px solid #ddd;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <button class="back-btn">&larr;</button>
+      <h2>Product Management</h2>
+      <button class="new-product-btn">+ New Product</button>
+    </div>
+
+    <div class="form-section">
+      <input type="text" placeholder="Product Name" />
+      <input type="text" placeholder="Description" />
+      <input type="number" placeholder="QTY On Hand" />
+      <input type="number" placeholder="Unit Price" />
+
+      <div class="image-upload">
+        <div class="image-preview" id="imagePreview"></div>
+        <input type="file" id="imageInput" />
+        <button onclick="document.getElementById('imageInput').click()">Select Image</button>
+      </div>
+
+      <button class="save-btn">Save Product</button>
+    </div>
+
+    <input type="text" placeholder="Search Product" class="search-input" />
+
+    <table>
+      <thead>
+        <tr>
+          <th>Product Id</th>
+          <th>Description</th>
+          <th>Unit Price</th>
+          <th>QTY On Hand</th>
+          <th>Image</th>
+          <th>Options</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Product rows go here -->
+      </tbody>
+    </table>
+  </div>
+
+  <script>
+    const imageInput = document.getElementById('imageInput');
+    const imagePreview = document.getElementById('imagePreview');
+
+    imageInput.addEventListener('change', function () {
+      const file = this.files[0];
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = function () {
+          imagePreview.style.backgroundImage = `url(${reader.result})`;
+        };
+        reader.readAsDataURL(file);
+      }
+    });
+  </script>
+</body>
+</html>

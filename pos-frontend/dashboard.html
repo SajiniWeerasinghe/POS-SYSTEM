@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f4f4f4;
+    }
+
+    .header {
+      background: #ffffff;
+      padding: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .header h2 {
+      margin: 0;
+    }
+
+    .datetime {
+      font-size: 16px;
+    }
+
+    .dashboard {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      padding: 30px;
+    }
+
+    .card {
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      padding: 30px 20px;
+      text-align: center;
+      transition: transform 0.2s;
+      cursor: pointer;
+    }
+
+    .card:hover {
+      transform: scale(1.02);
+    }
+
+    .card img {
+      height: 50px;
+      margin-bottom: 15px;
+    }
+
+    .card-title {
+      font-size: 16px;
+      font-weight: 600;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="header">
+    <h2>Dashboard</h2>
+    <div class="datetime">
+  Date : <span id="current-date"></span> &nbsp;&nbsp;|&nbsp;&nbsp; Time : <span id="current-time"></span>
+</div>
+  </div>
+
+  <div class="dashboard">
+    <div class="card">
+      <img src="https://img.icons8.com/ios-filled/50/customer-support.png" alt="Customer">
+      <div class="card-title">Customer Management</div>
+    </div>
+    <div class="card">
+      <img src="https://img.icons8.com/ios-filled/50/product.png" alt="Product">
+      <div class="card-title">Product Management</div>
+    </div>
+    <div class="card">
+      <img src="https://img.icons8.com/ios-filled/50/combo-chart.png" alt="Statistics">
+      <div class="card-title">Statistics</div>
+    </div>
+    <div class="card">
+      <img src="https://img.icons8.com/ios-filled/50/user.png" alt="User Management">
+      <div class="card-title">User Management</div>
+    </div>
+    <div class="card">
+      <img src="https://img.icons8.com/ios-filled/50/purchase-order.png" alt="Order Management">
+      <div class="card-title">Order Management</div>
+    </div>
+    <div class="card">
+      <img src="https://img.icons8.com/ios-filled/50/controller.png" alt="Activity Console">
+      <div class="card-title">Activity Console</div>
+    </div>
+    <div class="card">
+      <img src="https://img.icons8.com/ios-filled/50/like.png" alt="Loyalty Program">
+      <div class="card-title">Loyalty Program</div>
+    </div>
+    <div class="card">
+      <img src="https://img.icons8.com/ios-filled/50/settings.png" alt="Settings">
+      <div class="card-title">Settings</div>
+    </div>
+  </div>
+
+
+  <script>
+  function updateDateTime() {
+    const now = new Date();
+
+    const date = now.toISOString().split('T')[0]; // Format: YYYY-MM-DD
+    const time = now.toTimeString().split(' ')[0]; // Format: HH:MM:SS
+
+    document.getElementById('current-date').textContent = date;
+    document.getElementById('current-time').textContent = time;
+  }
+
+  // Initial call
+  updateDateTime();
+
+  // Update every second
+  setInterval(updateDateTime, 1000);
+</script>
+
+</body>
+</html>

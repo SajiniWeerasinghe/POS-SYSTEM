@@ -1,0 +1,37 @@
+/* Splash Screen */
+#splash-screen {
+  position: fixed;
+  inset: 0;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.loader {
+  border: 8px solid #f3f3f3;
+  border-top: 8px solid #333;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  animation: spin 5s linear infinite;
+  margin-bottom: 16px;
+}
+
+.splash-text {
+  text-align: center;
+  font-family: sans-serif;
+  font-size: 16px;
+  color: #111;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Statistics - Order History</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background: #f4f4f4;
+      margin: 0;
+      padding: 20px;
+    }
+
+    .container {
+      background: white;
+      max-width: 1000px;
+      margin: auto;
+      padding: 20px;
+      border-radius: 8px;
+    }
+
+    .top-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .back-btn {
+      font-size: 18px;
+      border: none;
+      background: none;
+      cursor: pointer;
+    }
+
+    .backup-btn {
+      background: #00b894;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    h3 {
+      margin-top: 30px;
+    }
+
+    .chart-container {
+      margin-top: 10px;
+    }
+
+    .button-row {
+      margin-top: 20px;
+      display: flex;
+      justify-content: flex-end;
+      gap: 10px;
+    }
+
+    .dark-btn {
+      background: #2d3436;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    .blue-btn {
+      background: #0984e3;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="top-bar">
+      <button class="back-btn">&larr;</button>
+      <h2>Statistics</h2>
+      <button class="backup-btn">Make Backup</button>
+    </div>
+
+    <h3>Order History</h3>
+
+    <div class="chart-container">
+      <canvas id="orderChart"></canvas>
+    </div>
+
+    <div class="button-row">
+      <button class="dark-btn">List View</button>
+      <button class="blue-btn">Print Data</button>
+    </div>
+  </div>
+
+  <!-- Chart.js CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script>
+    const ctx = document.getElementById('orderChart').getContext('2d');
+    new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels: ['Text', 'Text', 'Text', 'Text', 'Text', 'Text'],
+        datasets: [{
+          label: 'Orders',
+          data: [20, 100, 70, 50, 90, 70],
+          fill: true,
+          backgroundColor: 'rgba(52, 152, 219, 0.4)',
+          borderColor: 'rgba(41, 128, 185, 1)',
+          tension: 0.4
+        }]
+      },
+      options: {
+        responsive: true,
+        scales: {
+          y: {
+            beginAtZero: true,
+            max: 125
+          }
+        }
+      }
+    });
+  </script>
+</body>
+</html>
